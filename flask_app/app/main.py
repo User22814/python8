@@ -108,7 +108,7 @@ def todo_create():
     username = request.form.get('username')
     salary = request.form.get('salary')
 
-    connection_string = "dbname='flask_database' user='flask_user' host='localhost' password='12345qwertY!'"
+    connection_string = "dbname=postgres user=postgres password=qwerty228"
     connection = psycopg2.connect(connection_string)
     cursor = connection.cursor()
     connection.autocommit = False
@@ -128,7 +128,7 @@ def todo_create():
 @app.route("/todo_list/", methods=['GET'])
 def todo_list():
     todos = []
-    connection_string = "dbname='flask_database' user='flask_user' host='localhost' password='12345qwertY!'"
+    connection_string = "dbname=postgres user=postgres password=qwerty228"
     connection = psycopg2.connect(connection_string)
     cursor = connection.cursor()
     connection.autocommit = False
@@ -157,10 +157,11 @@ def todo_list():
     # todos = [{"id": x, "name": f"Clear cat #{x}", "salary": 60000 + x * 100} for x in range(1, 30+1)]
     return render_template('Todo_list.html', todos=todos)  # **kwargs
 
+
 @app.route("/todo_detail/<todo_id>/", methods=['GET'])
 def todo_detail(todo_id):
     todo = {}
-    connection_string = "dbname='flask_database' user='flask_user' host='localhost' password='12345qwertY!'"
+    connection_string = "dbname=postgres user=postgres password=qwerty228"
     connection = psycopg2.connect(connection_string)
     cursor = connection.cursor()
     connection.autocommit = False
@@ -190,7 +191,7 @@ def todo_detail(todo_id):
 
 def db():
     # connection_string = "dbname='flask_database' user='postgres' host='localhost' password='31284bogdan'"
-    connection_string = "dbname='flask_database' user='flask_user' host='localhost' password='12345qwertY!'"
+    connection_string = "dbname=postgres user=postgres password=qwerty228"
     connection = psycopg2.connect(connection_string)
     cursor = connection.cursor()
     connection.autocommit = False
